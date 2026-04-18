@@ -16,3 +16,25 @@ Sistema de atendimento automático via WhatsApp.
 - Docker (Evolution API, PostgreSQL, Redis, n8n)
 
 ## Arquitetura
+Evolution API (WhatsApp)
+↓  MESSAGES_UPSERT
+[Nó 1] Webhook
+↓
+[Nó 2] Code JS — EXTRAIR NÚMERO
+↓
+[Nó 3] Filter (valido = true)
+↓ TRUE              ↓ FALSE
+[Nó 4] Claude     [Nó ERR] Code JS: preparar log
+↓                  ↓
+[Nó 5] Code JS    [Nó ERR-2] Notion: Log de Erros
+(parser Claude)
+↓
+[Nó 6] Notion: Tokyo Monitor
+
+## Documentação
+
+Documentação técnica completa no Notion (repositório privado).
+
+## Status
+
+✅ Operacional — 17/04/2026
